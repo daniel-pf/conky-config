@@ -50,8 +50,8 @@ border_margin 5
 border_width 1
 
 # Default colors and also border colors
-#default_color 771a6e
-default_color white
+default_color ff8ce4
+#default_color white
 #default_shade_color black
 #default_outline_color white
 #own_window_colour white
