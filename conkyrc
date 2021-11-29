@@ -99,6 +99,7 @@ ${font StyleBats:size=16}A${font}   CPU5: ${cpu cpu5}% ${alignr}${cpubar cpu5 8,
 ${font StyleBats:size=16}A${font}   CPU6: ${cpu cpu6}% ${alignr}${cpubar cpu6 8,60}
 ${font StyleBats:size=16}A${font}   CPU7: ${cpu cpu7}% ${alignr}${cpubar cpu7 8,60}
 ${font StyleBats:size=16}A${font}   CPU8: ${cpu cpu8}% ${alignr}${cpubar cpu8 8,60}
+${font StyleBats:size=16}I${font}   Load: ${alignr}${loadavg 1}   ${loadavg 2}   ${loadavg 3}
 
 ${font StyleBats:size=16}g${font}   RAM: $memperc% ${alignr}${membar 8,60}
 ${font StyleBats:size=16}j${font}   SWAP: $swapperc% ${alignr}${swapbar 8,60}
