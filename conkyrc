@@ -62,7 +62,7 @@ alignment top_right
 # Gap between borders of screen and text
 # same thing as passing -x at command line
 gap_x 30
-gap_y 60
+gap_y 40
 
 # Subtract file system buffers from used memory?
 no_buffers yes
@@ -119,28 +119,40 @@ ${top name 3}$alignr${top cpu 6} ${top mem 6}
 HD ${hr 2}
 ${font Pie charts for maps:size=14}7${font}   ${voffset -5}Root:
 ${voffset 4}${fs_free /}/${fs_size /} ${alignr}${fs_bar 8,60 /}
-${font Pie charts for maps:size=14}7${font}   ${voffset -5}Home:
-${voffset 4}${fs_free /home}/${fs_size /} ${alignr}${fs_bar 8,60 /home}
+#${font Pie charts for maps:size=14}7${font}   ${voffset -5}Home:
+#${voffset 4}${fs_free /home}/${fs_size /} ${alignr}${fs_bar 8,60 /home}
 ${font Pie charts for maps:size=14}7${font}   ${voffset -5}Dados:
 ${voffset 4}${fs_free /data}/${fs_size /data} ${alignr}${fs_bar 8,60 /data}
 
 NETWORK ${hr 2}
+${voffset -20}
 ${if_existing /proc/net/route wlp3s0}
-${voffset -6}${font PizzaDude Bullets:size=14}O${font}   Up: ${upspeed wlp3s0} kb/s ${alignr}${upspeedgraph wlp3s0 8,60}
+Wi-Fi
+${hr 1}
+${voffset 4}${font PizzaDude Bullets:size=14}O${font}   Up: ${upspeed wlp3s0} kb/s ${alignr}${upspeedgraph wlp3s0 8,60}
 ${voffset 4}${font PizzaDude Bullets:size=14}U${font}   Down: ${downspeed wlp3s0} kb/s ${alignr}${downspeedgraph wlp3s0 8,60}
 ${voffset 4}${font PizzaDude Bullets:size=14}N${font}   Upload: ${alignr}${totalup wlp3s0}
 ${voffset 4}${font PizzaDude Bullets:size=14}T${font}   Download: ${alignr}${totaldown wlp3s0}
 ${voffset 4}${font PizzaDude Bullets:size=14}Z${font}   Signal: ${wireless_link_qual wlp3s0}% ${alignr}${wireless_link_bar 8,60 wlp3s0}
 ${voffset 4}${font PizzaDude Bullets:size=14}a${font}   Local Ip: ${alignr}${addr wlp3s0}
 ${voffset 4}${font PizzaDude Bullets:size=14}b${font}   Public Ip: ${alignr}${execi 1 ~/.conky/scripts/ip.sh}
-${endif}
-${if_existing /proc/net/route enp2s0}
-${voffset -6}${font PizzaDude Bullets:size=14}O${font}   Up: ${upspeed enp2s0} kb/s ${alignr}${upspeedgraph enp2s0 8,60}
+${endif}${if_existing /proc/net/route enp2s0}
+Wired
+${hr 1}
+${voffset 4}${font PizzaDude Bullets:size=14}O${font}   Up: ${upspeed enp2s0} kb/s ${alignr}${upspeedgraph enp2s0 8,60}
 ${voffset 4}${font PizzaDude Bullets:size=14}U${font}   Down: ${downspeed enp2s0} kb/s ${alignr}${downspeedgraph enp2s0 8,60}
 ${voffset 4}${font PizzaDude Bullets:size=14}N${font}   Upload: ${alignr}${totalup enp2s0}
 ${voffset 4}${font PizzaDude Bullets:size=14}T${font}   Download: ${alignr}${totaldown enp2s0}
 ${voffset 4}${font PizzaDude Bullets:size=14}a${font}   Local Ip: ${alignr}${addr enp2s0}
 ${voffset 4}${font PizzaDude Bullets:size=14}b${font}   Public Ip: ${alignr}${execi 1 ~/.conky/scripts/ip.sh}
+${endif}${if_existing /proc/net/route tun0}
+OpenVPN Alpha7
+${hr 1}
+${voffset 4}${font PizzaDude Bullets:size=14}O${font}   Up: ${upspeed tun0} kb/s ${alignr}${upspeedgraph tun0 8,60}
+${voffset 4}${font PizzaDude Bullets:size=14}U${font}   Down: ${downspeed tun0} kb/s ${alignr}${downspeedgraph tun0 8,60}
+${voffset 4}${font PizzaDude Bullets:size=14}N${font}   Upload: ${alignr}${totalup tun0}
+${voffset 4}${font PizzaDude Bullets:size=14}T${font}   Download: ${alignr}${totaldown tun0}
+${voffset 4}${font PizzaDude Bullets:size=14}a${font}   Local Ip: ${alignr}${addr tun0}
 ${endif}
 #TODO: exibir isso se nenhuma das duas redes estiver disponível
 #${else}
