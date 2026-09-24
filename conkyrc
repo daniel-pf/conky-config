@@ -104,21 +104,30 @@ conky.text = [[
 SYSTEM ${hr 2}
 ${voffset 2}${font OpenLogos:size=16}u${font}   Kernel:  ${alignr}${kernel}
 ${voffset 2}${font StyleBats:size=16}m${font}   Servidor Gráfico:  ${alignr}${execi 3600 echo $XDG_SESSION_TYPE}
-${font StyleBats:size=16}A${font}   CPU1: ${cpu cpu1}% ${alignr}${cpubar cpu1 8,60}
-${font StyleBats:size=16}A${font}   CPU2: ${cpu cpu2}% ${alignr}${cpubar cpu2 8,60}
-${font StyleBats:size=16}A${font}   CPU3: ${cpu cpu3}% ${alignr}${cpubar cpu3 8,60}
-${font StyleBats:size=16}A${font}   CPU4: ${cpu cpu4}% ${alignr}${cpubar cpu4 8,60}
-${font StyleBats:size=16}A${font}   CPU5: ${cpu cpu5}% ${alignr}${cpubar cpu5 8,60}
-${font StyleBats:size=16}A${font}   CPU6: ${cpu cpu6}% ${alignr}${cpubar cpu6 8,60}
-${font StyleBats:size=16}A${font}   CPU7: ${cpu cpu7}% ${alignr}${cpubar cpu7 8,60}
-${font StyleBats:size=16}A${font}   CPU8: ${cpu cpu8}% ${alignr}${cpubar cpu8 8,60}
-${font StyleBats:size=16}I${font}   Load: ${alignr}${loadavg 1}   ${loadavg 2}   ${loadavg 3}
 
+#${font StyleBats:size=16}A${font}  ${alignr} ${cpu cpu1}% ${cpubar cpu1 8,60} ${offset 6}   ${alignr}  ${cpu cpu7}% ${alignr}${cpubar cpu7 8,60}
+#${font StyleBats:size=16}A${font}  ${alignr} ${cpu cpu2}% ${cpubar cpu2 8,60} ${offset 6}   ${alignr}  ${cpu cpu8}% ${alignr}${cpubar cpu8 8,60}
+#${font StyleBats:size=16}A${font}  ${alignr} ${cpu cpu3}% ${cpubar cpu3 8,60} ${offset 6}   ${alignr}  ${cpu cpu9}% ${alignr}${cpubar cpu9 8,60}
+#${font StyleBats:size=16}A${font}  ${alignr} ${cpu cpu4}% ${cpubar cpu4 8,60} ${offset 6}   ${alignr}  ${cpu cpu10}% ${alignr}${cpubar cpu10 8,60}
+#${font StyleBats:size=16}A${font}  ${alignr} ${cpu cpu5}% ${cpubar cpu5 8,60} ${offset 6}   ${alignr}  ${cpu cpu11}% ${alignr}${cpubar cpu11 8,60}
+#${font StyleBats:size=16}A${font}  ${alignr} ${cpu cpu6}% ${cpubar cpu6 8,60} ${offset 6}   ${alignr}  ${cpu cpu12}% ${alignr}${cpubar cpu12 8,60}
+
+${font StyleBats:size=16}A${font}   CPU: ${alignr} ${cpu}%
+${voffset 4}${cpubar cpu1 8,54} ${cpubar cpu4 8,54} ${cpubar cpu7 8,54} ${cpubar cpu10 8,54}
+${voffset -2}${cpubar cpu2 8,54} ${cpubar cpu5 8,54} ${cpubar cpu8 8,54} ${cpubar cpu11 8,54}
+${voffset -2}${cpubar cpu2 8,54} ${cpubar cpu6 8,54} ${cpubar cpu9 8,54} ${cpubar cpu12 8,54}
+
+${font StyleBats:size=16}H${font}   CPU Fan:${alignr}${exec sensors | grep 'CPU Fan:' | awk {'print $3" "$4'}}
+${font StyleBats:size=16}P${font}   CPU Temperature:${alignr}${exec sensors | grep 'CPU:' | awk {'print $2'}}
 ${font StyleBats:size=16}g${font}   RAM: $memperc% ${alignr}${membar 8,60}
 ${font StyleBats:size=16}j${font}   SWAP: $swapperc% ${alignr}${swapbar 8,60}
+${font StyleBats:size=16}A${font}   GPU: ${alignr} ${execi 5 nvidia-smi --query-gpu=utilization.gpu --format=csv,noheader,nounits}%
+${font StyleBats:size=16}P${font}   GPU Temperature:${alignr}+${execi 5 nvidia-smi --query-gpu=temperature.gpu --format=csv,noheader,nounits}°C
+${font StyleBats:size=16}g${font}   VRAM: ${color} ${execi 5 nvidia-smi --query-gpu=utilization.memory --format=csv,noheader,nounits}% ${alignr}${execibar 5 8,60 nvidia-smi --query-gpu=utilization.memory --format=csv,noheader,nounits}
 ${font Webdings:size=16}~${font}  Battery: ${battery_percent BAT0}% ${alignr}${battery_bar 8,60 BAT0}
 ${font StyleBats:size=16}q${font}   Uptime: ${alignr}${uptime}
 ${font StyleBats:size=16}k${font}   Processes: ${alignr}$processes ($running_processes running)
+${font StyleBats:size=16}I${font}   Load: ${alignr}${loadavg 1}   ${loadavg 2}   ${loadavg 3}
 
 Highest CPU $alignr CPU% MEM%
 ${hr 1}
