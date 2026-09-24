@@ -141,10 +141,10 @@ ${top name 3}$alignr${top cpu 6} ${top mem 6}
 HD ${hr 2}
 ${font Pie charts for maps:size=14}7${font}   ${voffset -5}Root:
 ${voffset 4}${fs_free /}/${fs_size /} ${alignr}${fs_bar 8,60 /}
-#${font Pie charts for maps:size=14}7${font}   ${voffset -5}Home:
-#${voffset 4}${fs_free /home}/${fs_size /} ${alignr}${fs_bar 8,60 /home}
-${font Pie charts for maps:size=14}7${font}   ${voffset -5}Dados:
-${voffset 4}${fs_free /data}/${fs_size /data} ${alignr}${fs_bar 8,60 /data}
+${font Pie charts for maps:size=14}7${font}   ${voffset -5}Home:
+${voffset 4}${fs_free /home}/${fs_size /} ${alignr}${fs_bar 8,60 /home}
+#${font Pie charts for maps:size=14}7${font}   ${voffset -5}Dados:
+#${voffset 4}${fs_free /data}/${fs_size /data} ${alignr}${fs_bar 8,60 /data}
 
 NETWORK ${hr 2}
 ${voffset -20}
