@@ -105,6 +105,9 @@ SYSTEM ${hr 2}
 ${voffset 2}${font OpenLogos:size=16}u${font}   Kernel:  ${alignr}${kernel}
 ${voffset 2}${font StyleBats:size=16}m${font}   Servidor Gráfico:  ${alignr}${execi 3600 echo $XDG_SESSION_TYPE}
 
+PipeWire
+${hr 1}
+${execpi 60 ~/.conky/scripts/pipewire-info.sh}
 #${font StyleBats:size=16}A${font}  ${alignr} ${cpu cpu1}% ${cpubar cpu1 8,60} ${offset 6}   ${alignr}  ${cpu cpu7}% ${alignr}${cpubar cpu7 8,60}
 #${font StyleBats:size=16}A${font}  ${alignr} ${cpu cpu2}% ${cpubar cpu2 8,60} ${offset 6}   ${alignr}  ${cpu cpu8}% ${alignr}${cpubar cpu8 8,60}
 #${font StyleBats:size=16}A${font}  ${alignr} ${cpu cpu3}% ${cpubar cpu3 8,60} ${offset 6}   ${alignr}  ${cpu cpu9}% ${alignr}${cpubar cpu9 8,60}
