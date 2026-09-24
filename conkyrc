@@ -6,7 +6,7 @@ conky.config = {
 
   use_xft = true,
   font = 'DejaVu Sans:size=8',
---xftalpha = 0.8,
+  xftalpha = 0.8,
   text_buffer_size = 2048,
 
 -- Update interval in seconds
@@ -19,7 +19,8 @@ conky.config = {
 -- Create own window instead of using desktop (required in nautilus)
   own_window_class = 'normal',
   own_window = true,
-  own_window_type = 'normal',
+--own_window_type normal
+  own_window_type = 'panel',
   own_window_transparent = true,
   own_window_argb_visual = true,
   own_window_hints = 'undecorated,below,sticky,skip_taskbar,skip_pager',
@@ -45,25 +46,30 @@ conky.config = {
   stippled_borders = 0,
 
 -- border margins
-  border_margin = 5,
+--  border_margin = '5',
 
 -- border width
   border_width = 1,
 
 -- Default colors and also border colors
-  default_color = 'ff8ce4',
+  default_color = '#ff8ce4',-- papel de parede mais escuro
+--default_color 77304b # papel de parede mais claro
 --default_color white
 --default_shade_color black
 --default_outline_color white
 --own_window_colour white
 
 -- Text alignment, other possible values are commented
-  alignment = 'top_right',
+--alignment top_right
+  alignment = 'top_left',
 
 -- Gap between borders of screen and text
 -- same thing as passing -x at command line
   gap_x = 30,
-  gap_y = 40,
+  gap_y = 60,
+
+-- Margin between panel and other windows
+  border_outer_margin = 25,
 
 -- Subtract file system buffers from used memory?
   no_buffers = true,
@@ -84,6 +90,9 @@ conky.config = {
 
 -- Add spaces to keep things from moving about?  This only affects certain objects.
   use_spacer = 'none',
+
+--pad_percents 2
+--use_spacer left
 
 };
 
