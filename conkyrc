@@ -97,12 +97,13 @@ conky.config = {
 };
 
 conky.text = [[
-DATE ${hr 2}
-${alignc}${font Freesans:pixelsize=23:bold}${time %H:%M:%S}${font}
-${alignc}${font Freesans:pixelsize=10}${time %a %d %b %Y}${font}
-
+#DATE ${hr 2}
+#${alignc}${font Freesans:pixelsize=23:bold}${time %H:%M:%S}${font}
+#${alignc}${font Freesans:pixelsize=10}${time %a %d %b %Y}${font}
+#
 SYSTEM ${hr 2}
 ${voffset 2}${font OpenLogos:size=16}u${font}   Kernel:  ${alignr}${kernel}
+${voffset 2}${font StyleBats:size=16}m${font}   Servidor Gráfico:  ${alignr}${execi 3600 echo $XDG_SESSION_TYPE}
 ${font StyleBats:size=16}A${font}   CPU1: ${cpu cpu1}% ${alignr}${cpubar cpu1 8,60}
 ${font StyleBats:size=16}A${font}   CPU2: ${cpu cpu2}% ${alignr}${cpubar cpu2 8,60}
 ${font StyleBats:size=16}A${font}   CPU3: ${cpu cpu3}% ${alignr}${cpubar cpu3 8,60}
