@@ -124,9 +124,9 @@ ${font StyleBats:size=16}H${font}   CPU Fan:${alignr}${exec sensors | grep 'CPU 
 ${font StyleBats:size=16}P${font}   CPU Temperature:${alignr}${exec sensors | grep 'CPU:' | awk {'print $2'}}
 ${font StyleBats:size=16}g${font}   RAM: $memperc% ${alignr}${membar 8,60}
 ${font StyleBats:size=16}j${font}   SWAP: $swapperc% ${alignr}${swapbar 8,60}
-${font StyleBats:size=16}A${font}   GPU: ${alignr} ${execi 5 nvidia-smi --query-gpu=utilization.gpu --format=csv,noheader,nounits}%
-${font StyleBats:size=16}P${font}   GPU Temperature:${alignr}+${execi 5 nvidia-smi --query-gpu=temperature.gpu --format=csv,noheader,nounits}°C
-${font StyleBats:size=16}g${font}   VRAM: ${color} ${execi 5 nvidia-smi --query-gpu=utilization.memory --format=csv,noheader,nounits}% ${alignr}${execibar 5 8,60 nvidia-smi --query-gpu=utilization.memory --format=csv,noheader,nounits}
+${font StyleBats:size=16}A${font}   GPU: ${alignr}${execi 5 ~/.conky/scripts/gpu-info.sh gpu}
+${font StyleBats:size=16}P${font}   GPU Temperature:${alignr}${execi 5 ~/.conky/scripts/gpu-info.sh temp}
+${font StyleBats:size=16}g${font}   VRAM: ${color} ${execi 5 ~/.conky/scripts/gpu-info.sh vram} ${alignr}${execibar 5 8,60 ~/.conky/scripts/gpu-info.sh vram-bar}
 ${font Webdings:size=16}~${font}  Battery: ${battery_percent BAT0}% ${alignr}${battery_bar 8,60 BAT0}
 ${font StyleBats:size=16}q${font}   Uptime: ${alignr}${uptime}
 ${font StyleBats:size=16}k${font}   Processes: ${alignr}$processes ($running_processes running)
